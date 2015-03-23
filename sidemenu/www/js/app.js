@@ -5,67 +5,60 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('MainApp', ['ionic', 'controllers', 'services'])
-
-    .run(function ($ionicPlatform) {
-        $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
-            }
-        });
-    })
+angular.module('MainApp', ['ionic'])
 
 
-config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('menu', {
-            url: "/",
+            url: "/menu",
             abstract: true,
-            templateUrl: "templates/menu.html"
+            templateUrl: "menu.html"
         })
         .state('menu.home', {
-            url: "/home",
+            url: "/menu/home",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/home.html"
+                    templateUrl: "home.html"
+
                 }
             }
         })
         .state('menu.gioithieu', {
-            url: "/gioithieu",
+            url: "/menu/gioithieu",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/gioithieu.html",
-                    controller: ""
+                    templateUrl: "gioithieu.html"
+
                 }
             }
         })
         .state('menu.dichvu', {
-            url: "/dichvu",
+            url: "/menu/dichvu",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/dichvu.html",
-                    controller: ""
+                    templateUrl: "dichvu.html"
+
                 }
             }
         })
 
         .state('menu.lienhe', {
-            url: "/lienhe",
+            url: "/menu/lienhe",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/lienhe.html",
-                    controller: ""
+                    templateUrl: "lienhe.html"
                 }
             }
         })
 
-    $urlRouterProvider.otherwise("/home");
+
+})
+
+.controller('MainCtrl', function ($scope, $ionicSideMenuDelegate) {
+
+    $scope.toggleLeft = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+    };
 });
