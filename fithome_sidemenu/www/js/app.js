@@ -48,6 +48,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             })
 
+            .state('app.noithat', {
+                url: "/services/noithat",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/noithat.html"
+                    }
+                }
+            })
+
             .state('app.search', {
                 url: "/search",
                 views: {
