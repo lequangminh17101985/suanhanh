@@ -1,0 +1,23 @@
+<ion-view view-title="Dự án đã thực hiện">
+    <ion-content>
+
+        <ion-list>
+            <ion-item ng-repeat="project in projects" href="#/app/projects/{{project.id}}">
+                <div class="row">
+                    <div class="col">
+                        <div class="list card">
+                            <a class="item" href="#/app/projects/{{project.id}}">
+                                <img class="full-image" src="img/{{project.picture}}">
+                            </a>
+                            <p class="item text-center">{{project.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+
+
+
+    </ion-content>
+</ion-view>

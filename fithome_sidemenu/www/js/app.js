@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -57,42 +57,35 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             })
 
-            .state('app.search', {
-                url: "/search",
+            .state('app.projects', {
+                url: "/projects",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/search.html"
+                        templateUrl: "templates/projects.html",
+                        controller: "projectCtrl"
                     }
                 }
             })
 
-            .state('app.browse', {
-                url: "/browse",
+            .state('app.projectdetail', {
+                url: "/projects/:id",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/browse.html"
-                    }
-                }
-            })
-            .state('app.playlists', {
-                url: "/playlists",
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/playlists.html",
-                        controller: 'PlaylistsCtrl'
+                        templateUrl: "templates/project.html",
+                        controller: "projectDetailCtrl"
                     }
                 }
             })
 
-            .state('app.single', {
-                url: "/playlists/:playlistId",
+            .state('app.contactus', {
+                url: "/contactus",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/playlist.html",
-                        controller: 'PlaylistCtrl'
+                        templateUrl: "templates/contactus.html"
                     }
                 }
             });
+
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');
     });
